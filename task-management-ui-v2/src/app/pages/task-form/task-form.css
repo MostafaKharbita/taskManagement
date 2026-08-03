@@ -1,0 +1,160 @@
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #fdf6ee 0%, #f3ede3 100%);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2.5rem 2.25rem;
+  box-shadow: 0 20px 40px -12px rgba(90, 60, 30, 0.15);
+}
+
+.auth-card-wide {
+  max-width: 560px;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.auth-icon {
+  display: inline-block;
+  font-size: 1.5rem;
+  color: #c96f4a;
+  margin-bottom: 0.5rem;
+}
+
+.auth-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2b2118;
+}
+
+.auth-header p {
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+  color: #8a7c6d;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.field-row {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.field-row .field-group {
+  flex: 1;
+}
+
+.field-group {
+  position: relative;
+}
+
+.field-input,
+.field-select {
+  width: 100%;
+  padding: 0.95rem 0.9rem 0.55rem;
+  border: 1.5px solid #e5ddd0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: #2b2118;
+  background: #fffdfa;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.field-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.field-input:focus,
+.field-select:focus {
+  border-color: #c96f4a;
+  box-shadow: 0 0 0 3px rgba(201, 111, 74, 0.15);
+}
+
+.field-input.field-error {
+  border-color: #d64545;
+}
+
+.field-label {
+  position: absolute;
+  left: 0.9rem;
+  top: 0.85rem;
+  font-size: 0.95rem;
+  color: #a89a89;
+  pointer-events: none;
+  transition: all 0.15s ease;
+}
+
+.field-input:focus + .field-label,
+.field-input:not(:placeholder-shown) + .field-label {
+  top: 0.35rem;
+  font-size: 0.7rem;
+  color: #c96f4a;
+  font-weight: 600;
+}
+
+.field-label-static {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #8a7c6d;
+  margin-bottom: 0.4rem;
+}
+
+.field-select {
+  padding: 0.75rem 0.9rem;
+  cursor: pointer;
+}
+
+.field-hint {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  color: #d64545;
+}
+
+.auth-submit {
+  margin-top: 0.5rem;
+  padding: 0.85rem;
+  border: none;
+  border-radius: 10px;
+  background: #c96f4a;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+
+.auth-submit:hover {
+  background: #b45f3d;
+}
+
+.auth-submit:disabled {
+  background: #e0c4b5;
+  cursor: not-allowed;
+}
+
+.auth-submit:active {
+  transform: scale(0.98);
+}

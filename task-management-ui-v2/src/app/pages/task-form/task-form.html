@@ -1,0 +1,76 @@
+<div class="auth-wrapper">
+  <div class="auth-card auth-card-wide">
+
+    <div class="auth-header">
+      <span class="auth-icon">✦</span>
+      <h2>{{ taskId ? 'Edit Task' : 'Create New Task' }}</h2>
+      <p>{{ taskId ? 'Update the details below.' : 'Fill in the details to add a new task.' }}</p>
+    </div>
+
+    <form [formGroup]="taskForm" (ngSubmit)="saveTask()" class="auth-form">
+
+      <div class="field-group">
+        <input
+          type="text"
+          id="title"
+          class="field-input"
+          [class.field-error]="title?.invalid && title?.touched"
+          placeholder=" "
+          formControlName="title">
+        <label for="title" class="field-label">Title</label>
+        <span class="field-hint" *ngIf="title?.invalid && title?.touched">
+          Title is required
+        </span>
+      </div>
+
+      <div class="field-group">
+        <textarea
+          id="description"
+          class="field-input field-textarea"
+          rows="3"
+          placeholder=" "
+          formControlName="description">
+        </textarea>
+        <label for="description" class="field-label">Description</label>
+      </div>
+
+      <div class="field-row">
+
+        <div class="field-group">
+          <label for="status" class="field-label-static">Status</label>
+          <select
+            id="status"
+            class="field-select"
+            formControlName="status">
+
+            <option value="TODO">To do</option>
+            <option value="IN_PROGRESS">In progress</option>
+            <option value="DONE">Done</option>
+
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label for="priority" class="field-label-static">Priority</label>
+          <select
+            id="priority"
+            class="field-select"
+            formControlName="priority">
+
+            <option value="LOW">Low</option>
+            <option value="MEDIUM">Medium</option>
+            <option value="HIGH">High</option>
+
+          </select>
+        </div>
+
+      </div>
+
+      <button type="submit" class="auth-submit" [disabled]="taskForm.invalid">
+        {{ taskId ? 'Update task' : 'Create task' }}
+      </button>
+
+    </form>
+
+  </div>
+</div>

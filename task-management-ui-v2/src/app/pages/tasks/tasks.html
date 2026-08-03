@@ -1,0 +1,110 @@
+<div class="tasks-wrapper">
+  <div class="row mb-4">
+    <div class="col-md-4">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by title or description..."
+        [(ngModel)]="searchText"
+        (input)="filterTasks()"
+      />
+    </div>
+
+    <div class="col-md-4">
+      <select
+        class="form-select"
+        [(ngModel)]="selectedStatus"
+        (change)="filterTasks()"
+      >
+        <option value="ALL">All Status</option>
+        <option value="TODO">TODO</option>
+        <option value="IN_PROGRESS">IN PROGRESS</option>
+        <option value="DONE">DONE</option>
+      </select>
+    </div>
+
+    <div class="col-md-4">
+      <select
+        class="form-select"
+        [(ngModel)]="selectedPriority"
+        (change)="filterTasks()"
+      >
+        <option value="ALL">All Priority</option>
+        <option value="LOW">LOW</option>
+        <option value="MEDIUM">MEDIUM</option>
+        <option value="HIGH">HIGH</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="tasks-header">
+    <div>
+      <h2>My Tasks</h2>
+
+      <p class="tasks-count">
+        {{ filteredTasks.length }} task{{ filteredTasks.length === 1 ? '' : 's'
+        }}
+      </p>
+    </div>
+
+    <div class="tasks-actions">
+      <a routerLink="/task-form" class="btn-add"> + Add task </a>
+
+      <button class="btn-logout" (click)="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="tasks-table-card">
+    <table class="tasks-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Priority</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let task of filteredTasks">
+          <td class="task-title">{{ task.title }}</td>
+
+          <td class="task-desc">{{ task.description }}</td>
+
+          <td>
+            <span
+              class="badge badge-status"
+              [ngClass]="'status-' + task.status"
+            >
+              {{ task.status.replace('_', ' ') }}
+            </span>
+          </td>
+
+          <td>
+            <span
+              class="badge badge-priority"
+              [ngClass]="'priority-' + task.priority"
+            >
+              {{ task.priority }}
+            </span>
+          </td>
+
+          <td class="task-actions">
+            <button class="btn-icon btn-edit" (click)="editTask(task.id!)">
+              Edit
+            </button>
+
+            <button class="btn-icon btn-delete" (click)="deleteTask(task.id!)">
+              Delete
+            </button>
+          </td>
+        </tr>
+
+        <tr *ngIf="filteredTasks.length === 0">
+          <td colspan="5" class="empty-state">No matching tasks found.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

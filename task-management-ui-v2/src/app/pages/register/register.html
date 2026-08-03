@@ -1,0 +1,51 @@
+<div class="auth-wrapper">
+  <div class="auth-card">
+
+    <div class="auth-header">
+      <span class="auth-icon">✦</span>
+      <h2>Create your account</h2>
+      <p>It only takes a minute.</p>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="register()" class="auth-form">
+
+      <div class="field-group">
+        <input
+          type="text"
+          id="name"
+          class="field-input"
+          placeholder=" "
+          formControlName="name">
+        <label for="name" class="field-label">Full name</label>
+      </div>
+
+      <div class="field-group">
+        <input
+          type="email"
+          id="email"
+          class="field-input"
+          placeholder=" "
+          formControlName="email">
+        <label for="email" class="field-label">Email address</label>
+      </div>
+
+      <div class="field-group">
+        <input
+          type="password"
+          id="password"
+          class="field-input"
+          placeholder=" "
+          formControlName="password">
+        <label for="password" class="field-label">Password</label>
+      </div>
+
+      <button type="submit" class="auth-submit">
+        Register
+      </button>
+
+    </form>
+
+    <p class="auth-footer">Already have an account? <a href="#">Sign in</a></p>
+
+  </div>
+</div>
